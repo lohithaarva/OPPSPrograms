@@ -1,0 +1,13 @@
+{
+    "rice": [ { "name": "basmati ", "weight": 2, "price": 230 },
+
+             { "name": "Brown rice ", "weight": 2, "price": 250.00 }],
+
+    "pulses": [{ "name": "Green Gram", "weight": 2, "price": 55.00 },
+               { "name": "lentils", "weight": 1, "price": 105.00 }],
+
+
+    "wheat": [ { "name": "Bread Flour", "weight": 1.5, "price": 70.00  },
+              { "name": "rye ", "weight": 2.7, "price": 60.00 }]
+
+}
