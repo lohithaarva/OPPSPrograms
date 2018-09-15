@@ -1,73 +1,35 @@
-/*var prompt = require('prompt-sync')();
-var fs = require('fs');
-var inventory = fs.readFileSync('./commercial.json', 'utf-8', function(err, commercial){
-if (err) throw err
-inventory = JSON.parse(commercial);
-
-})
-class Stock
-{   
-    
-    constuctor(totalStock,totalSharePrice,inventory)
-    {
-        this.totalStock = 0,
-        this.totalSharePrice =0,
-        this.inventory;
-    }
-
-        stockaccount()
-        {
-        var number = prompt("Enter the number of stocks required ==> ")
-            for (var i =0;i <number; i++)
-            {
-            var name = prompt("Enter the stockname ==> ");
-            var numOfShare = prompt("Enter the number of share==> "); 
-            var price = prompt("Enter the share price==> ");
-            var temp = {   
-                stockName: name,
-                numberOfShare: parseInt( numOfShare),
-                sharePrice: parseInt( price),
-            }
-            this.inti.commercial.push(temp)
-        }
-        return this.inti;
-    }
-    */
 
 var fs = require('fs');
-var prompt = require('prompt-sync')()
-var obj = fs.readFileSync('./commercial.json')
-    inventory = JSON.parse(obj);
+var prompt = require('prompt-sync')();
+var obj = JSON.parse(fs.readFileSync('/home/nadeem/Programlabz/OOPSPrograms/Main/commercial.json', 'utf8'));
 
-    
-class StockAccount 
-{
+class StockAccount {
 
     constructor(name, shares, price) {
         this.name = name;
         this.shares = shares;
         this.price = price;
         this.array = [];
-        this.res = [];
+        this.result = [];
 
     }
 
-    portfolio() {
-        console.log('Stocks present in portfolio are : ')
+    account() {
+        console.log('Stocks present in Stock account are : ')
 
-        for (let key in obj.inventory) {
+        for (let key in obj) {
 
-            this.res.push(obj.inventory[key]);
-            console.log(obj.inventory[key]);
+            this.result.push(obj[key]);
+            console.log(obj[key]);
 
         }
     }
 
     netValue() {
 
-        for (let key in obj.inventory) {
+        for (let key in obj) {
 
-            console.log('\n==> The value for ' + (obj.inventory[key].name) + ' Shares = ' + (obj.inventory[key].shares) * (obj.inventory[key].price) + "dollars" + '\n');
+            console.log('\n==> The value for ' + (obj[key].name) + ' Shares = ' + (obj[key].shares) * (obj[key].price) + ' ₹' + '\n');
     
         }
     }
@@ -92,15 +54,15 @@ class StockAccount
               let user1 = {  
                 
                 name: name,
-                date: 'Stock purchased on '+ date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear(),  // by key "name" store value "John"
-                time: 'Stock purchased at '+date.getHours()+' Hours :'+date.getMinutes()+' Minutes:'+ date.getSeconds()+ ' Seconds'       
+                date: 'Stock was purchased on '+ date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear(),  // by key "name" store value "John"
+                time: 'Stock was purchased at '+date.getHours()+' hours :'+date.getMinutes()+' minutes:'+ date.getSeconds()+ ' seconds'       
               };
            
               this.array.push(user1);
 
-              console.log('Successfully...!! purchased the stock');
+              console.log('Stock is purchased successfully!!!');
               
-       this.res.push(user);
+       this.result.push(user);
 
         
 
@@ -116,9 +78,9 @@ class StockAccount
 
         var erase = prompt('Enter Stock name to be removed :');
         var temp = -1;
-        for (let i = 0 ; i < this.res.length ; i++) {
+        for (let i = 0 ; i < this.result.length ; i++) {
 
-            if (this.res[i].name == erase) {
+            if (this.result[i].name == erase) {
 
                 temp = i;
 
@@ -127,20 +89,20 @@ class StockAccount
         }
 
         if (temp != -1) {
-           var company = this.res[temp].name;
-            delete this.res[temp];
+           var company = this.result[temp].name;
+            delete this.result[temp];
 
             console.log('Stock sold');
 
             
               
-            this.res = this.res.filter(this.filterByID);
+            this.result = this.result.filter(this.filterByID);
 
             let user = {  
                 
                 name: company,
-                date: 'Stock sold on '+ date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear(),
-                time: 'Stock sold at '+date.getHours()+' Hours :'+date.getMinutes()+' Minutes:'+ date.getSeconds()+ ' Seconds'       
+                date: 'Stock was sold on '+ date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear(),
+                time: 'Stock was sold at '+date.getHours()+' Hours :'+date.getMinutes()+' Minutes:'+ date.getSeconds()+ ' Seconds'       
               };
            
               this.array.push(user);
@@ -148,7 +110,7 @@ class StockAccount
 
         else {
 
-            console.log('Sorry...! Stock not present in .Json File ');
+            console.log('The stock is not available in your account ');
 
         }
 
@@ -158,9 +120,9 @@ class StockAccount
 
 save() {
 
-    var json = JSON.stringify(this.res);
+    var json = JSON.stringify(this.result);
 
-    console.log('Successfully updated in the file...!');
+    console.log('Successfully updated in the file!!');
     
 
     fs.writeFileSync('/home/nadeem/Programlabz/OOPSPrograms/Main/commercial.json', json, 'utf8');
@@ -168,17 +130,17 @@ save() {
 
 printReport() {
 
-    console.log('Stocks present in portfolio are : ')
+    console.log('Stocks present in your account are : ')
 
-    for (let key in this.res) {
+    for (let key in this.result) {
 
-        console.log(this.res[key]);
+        console.log(this.result[key]);
 
     }
 
-    for (let key in this.res) {
+    for (let key in this.result) {
 
-          console.log('\n==> The value for ' + (this.res[key].name) + ' Shares = ' + (this.res[key].shares) * (this.res[key].price) + ' ₹' + '\n');
+          console.log('\n==> The value for ' + (this.result[key].name) + ' Shares = ' + (this.result[key].shares) * (this.result[key].price) + ' dollars' + '\n');
   
       }
 
@@ -198,13 +160,6 @@ filterByID(item) {
     return false; 
   }
 
-
-
 }
 
-
-
 module.exports = StockAccount;
-
-   
-
