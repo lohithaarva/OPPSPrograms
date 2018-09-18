@@ -1,1 +1,1 @@
-{"stock":[{"stockName":"google","numberOfShare":1,"sharePrice":10},{"stockName":"flipkart","numberOfShare":1,"sharePrice":20},{"stockName":"google","numberOfShare":1,"sharePrice":10},{"stockName":"myntra","numberOfShare":2,"sharePrice":1}]}
+{"stock":[{"stockName":"google","numberOfShare":1,"sharePrice":10},null,{"stockName":"google","numberOfShare":1,"sharePrice":10},{"stockName":"myntra","numberOfShare":2,"sharePrice":1},{"stockName":"google","numberOfShare":1,"sharePrice":10},{"stockName":"microsoft","numberOfShare":1,"sharePrice":10}]}

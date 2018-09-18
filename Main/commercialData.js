@@ -1,6 +1,6 @@
 var prompt = require('prompt-sync')();
 
-var utility = require('/home/nadeem/Programlabz/OOPSPrograms/Utility/utilityStock.js');
+var utility = require('/home/nadeem/Programlabz/OOPSPrograms/Utility/utilityCommercialData.js');
 
 var account = new utility();
 
@@ -9,28 +9,28 @@ function choosing() {
 
     var action = prompt('Press 1 to continue the process or Press 2 to exit :');
 
-            if (action == 1) {
+    if (action == 1) {
 
-                dataProcessing()     
-            }
+        dataProcessing()
+    }
 
-            else if(action == 2) {
+    else if (action == 2) {
 
-                process.exit();
+        process.exit();
 
-            }
+    }
 
-            else {
+    else {
 
-                console.log('Invalid choosing :');
-                
-            }
+        console.log('Invalid choosing :');
+
+    }
 
 }
 
 function dataProcessing() {
 
-    
+
     console.log('\nPress 1 to view the exsisting account details: ');
     console.log('\nPress 2 to view the value of the stcks :');
     console.log('\nPress 3 to add shares of stock to account :');
@@ -44,12 +44,13 @@ function dataProcessing() {
     switch (choice) {
 
         case 1: account.account();
-        choosing();
+        console.log("print")
+            choosing();
 
             break;
 
         case 2: account.netValue();
-        choosing()
+            choosing()
             break;
 
         case 3: var count = prompt('Enter no of Stocks to Buy :');
@@ -63,10 +64,10 @@ function dataProcessing() {
             choosing()
             break;
         case 5: account.save();
-        choosing()
+            choosing()
             break;
         case 6: account.printReport();
-        choosing()
+            choosing()
             break;
 
         default:

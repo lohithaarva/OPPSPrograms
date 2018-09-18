@@ -2,21 +2,20 @@
 var prompt = require('prompt-sync')();
 var utility = require('../Utility/utility.js');
 
-function deckOfCards()
-{
-   var cards =[];
+function deckOfCards() {
+    var cards = [];
     // initialize deck
     var initialdeck = utility.initializeDeck()
     //console.log(initialdeck);
-    
+
     // shuffle
     var seconddeck = utility.shuffle(initialdeck)
     //console.log(seconddeck);
 
     // print shuffled deck
     var finaldeck = utility.shuffleddeck(seconddeck)
-        
-         
+
+
 
     var players = prompt('Enter number of players : ');
 
@@ -39,16 +38,16 @@ function deckOfCards()
 
             name.push(finaldeck[index]);
         }
-  
+
         cards.push(name);
-        
-       console.log('\nCards for player' + index + ' are : ' + name);
+
+        console.log('\nCards for player' + index + ' are : ' + name);
 
         initial = initial + size;
 
         stop = stop + size;
-    } 
+    }
     console.log("The  total cards received by the user are : ")
-    console.log(cards);     
+    console.log(cards);
 }
 deckOfCards()
